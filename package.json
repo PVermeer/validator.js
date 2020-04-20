@@ -8,6 +8,7 @@
     "index.js",
     "es",
     "lib",
+    "esm-es5",
     "README.md",
     "LICENCE",
     "validator.js",
@@ -32,6 +33,7 @@
   ],
   "main": "index.js",
   "module": "esm-es5/index.js",
+  "types": "./esm-es5/index.d.ts",
   "bugs": {
     "url": "https://github.com/chriso/validator.js/issues"
   },
