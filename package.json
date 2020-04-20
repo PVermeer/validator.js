@@ -31,6 +31,7 @@
     }
   ],
   "main": "index.js",
+  "module": "esm-es5/index.js",
   "bugs": {
     "url": "https://github.com/chriso/validator.js/issues"
   },
@@ -53,6 +54,7 @@
     "rimraf": "^3.0.0",
     "rollup": "^0.43.0",
     "rollup-plugin-babel": "^4.0.1",
+    "typescript": "^3.8.3",
     "uglify-js": "^3.0.19"
   },
   "scripts": {
@@ -66,7 +68,8 @@
     "build:browser": "node --require @babel/register build-browser && npm run minify",
     "build:es": "babel src -d es --env-name=es",
     "build:node": "babel src -d .",
-    "build": "npm run build:browser && npm run build:node && npm run build:es",
+    "build:esm-es5": "tsc",
+    "build": "npm run build:browser && npm run build:node && npm run build:es && npm run build:esm-es5",
     "pretest": "npm run lint && npm run build",
     "test": "nyc mocha --require @babel/register --reporter dot"
   },

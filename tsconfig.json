@@ -1,0 +1,29 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "module": "ES6",
+        "target": "ES5",
+        "outDir": "esm-es5",
+        "allowJs": true,
+        "checkJs": false,
+        "sourceMap": false,
+        "declaration": true,
+        "removeComments": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "stripInternal": true,
+        "lib": [
+            "ESNext",
+            "dom"
+        ],
+        "esModuleInterop": true
+    },
+    "files": [
+        "src/index.ts"
+    ]
+}

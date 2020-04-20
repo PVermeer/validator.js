@@ -1,2 +1,5 @@
 validator.js
 validator.min.js
+es/
+esm-es5/
+lib/
