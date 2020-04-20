@@ -1,4 +1,7 @@
 import assertString from './util/assertString';
+/**
+ * @param {string} str
+ */
 export default function unescape(str) {
     assertString(str);
     return (str.replace(/&amp;/g, '&')

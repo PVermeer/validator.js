@@ -6,6 +6,9 @@ const validAttribute = /^[a-z\-]+=[a-z0-9\-]+$/i;
 
 const validData = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
 
+/**
+ * @param {string} str
+ */
 export default function isDataURI(str) {
   assertString(str);
   let data = str.split(',');

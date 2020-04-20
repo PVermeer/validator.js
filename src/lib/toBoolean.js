@@ -1,5 +1,9 @@
 import assertString from './util/assertString';
 
+/**
+ * @param {string} str
+ * @param {boolean} [strict]
+ */
 export default function toBoolean(str, strict) {
   assertString(str);
   if (strict) {

@@ -99,6 +99,12 @@ phones['en-CA'] = phones['en-US'];
 phones['fr-BE'] = phones['nl-BE'];
 phones['zh-HK'] = phones['en-HK'];
 phones['zh-MO'] = phones['en-MO'];
+/**
+ * @param {string} str
+ * @param {string} [locale]
+ * @param {{ strictMode: boolean; }} [options]
+ */
+
 export default function isMobilePhone(str, locale, options) {
   assertString(str);
 

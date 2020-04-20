@@ -167,6 +167,10 @@ function dotsReplacer(match) {
   return '';
 }
 
+/**
+ * @param {string} email
+ * @param {default_normalize_email_options} [options]
+ */
 export default function normalizeEmail(email, options) {
   options = merge(options, default_normalize_email_options);
 

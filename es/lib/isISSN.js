@@ -1,5 +1,10 @@
 import assertString from './util/assertString';
 var issn = '^\\d{4}-?\\d{3}[\\dX]$';
+/**
+ * @param {string} str
+ * @param {{ case_sensitive: boolean, require_hyphen: boolean }} [options]
+ */
+
 export default function isISSN(str) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   assertString(str);

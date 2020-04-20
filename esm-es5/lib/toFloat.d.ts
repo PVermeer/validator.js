@@ -1,1 +1,4 @@
-export default function toFloat(str: any): number;
+/**
+ * @param {string} str
+ */
+export default function toFloat(str: string): number;

@@ -1,1 +1,4 @@
-export default function isBoolean(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isBoolean(str: string): boolean;

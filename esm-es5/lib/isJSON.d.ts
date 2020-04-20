@@ -1,1 +1,4 @@
-export default function isJSON(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isJSON(str: string): boolean;

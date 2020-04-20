@@ -1,5 +1,9 @@
 import assertString from './util/assertString';
 import { alphanumeric } from './alpha';
+/**
+ * @param {string} str
+ */
+
 export default function isAlphanumeric(str) {
   var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'en-US';
   assertString(str);

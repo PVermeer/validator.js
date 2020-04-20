@@ -119,6 +119,9 @@ function hasValidIbanChecksum(str) {
         .reduce(function (acc, value) { return Number(acc + value) % 97; }, '');
     return remainder === 1;
 }
+/**
+ * @param {string} str
+ */
 export default function isIBAN(str) {
     assertString(str);
     return hasValidIbanFormat(str) && hasValidIbanChecksum(str);

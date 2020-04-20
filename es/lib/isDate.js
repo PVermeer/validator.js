@@ -26,6 +26,10 @@ function zip(date, format) {
 
   return zippedArr;
 }
+/**
+ * @param {string} input
+ */
+
 
 export default function isDate(input) {
   var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'YYYY/MM/DD';

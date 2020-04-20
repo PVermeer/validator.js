@@ -1,3 +1,6 @@
+/**
+ * @returns { any }
+ */
 export default function merge(obj = { }, defaults) {
   for (const key in defaults) {
     if (typeof obj[key] === 'undefined') {

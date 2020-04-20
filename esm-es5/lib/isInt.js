@@ -1,6 +1,10 @@
 import assertString from './util/assertString';
 var int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
 var intLeadingZeroes = /^[-+]?[0-9]+$/;
+/**
+ * @param {string} str
+ * @param {{ min?: number; max?: number; allow_leading_zeroes?: boolean; lt?: number; gt?: number; }} [options]
+ */
 export default function isInt(str, options) {
     assertString(str);
     options = options || {};

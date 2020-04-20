@@ -1,1 +1,5 @@
-export default function equals(str: any, comparison: any): boolean;
+/**
+ * @param {string} str
+ * @param {string} comparison
+ */
+export default function equals(str: string, comparison: string): boolean;

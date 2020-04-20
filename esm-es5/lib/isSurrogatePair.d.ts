@@ -1,1 +1,4 @@
-export default function isSurrogatePair(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isSurrogatePair(str: string): boolean;

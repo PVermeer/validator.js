@@ -14,6 +14,10 @@ var lengths = {
     crc32: 8,
     crc32b: 8,
 };
+/**
+ * @param {string} str
+ * @param {keyof lengths} algorithm
+ */
 export default function isHash(str, algorithm) {
     assertString(str);
     var hash = new RegExp("^[a-fA-F0-9]{" + lengths[algorithm] + "}$");

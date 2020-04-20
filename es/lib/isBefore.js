@@ -1,5 +1,10 @@
 import assertString from './util/assertString';
 import toDate from './toDate';
+/**
+ * @param {string} str
+ * @param {string | number | date} [date]
+ */
+
 export default function isBefore(str) {
   var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : String(new Date());
   assertString(str);

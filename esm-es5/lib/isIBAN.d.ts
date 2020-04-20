@@ -1,1 +1,4 @@
-export default function isIBAN(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isIBAN(str: string): boolean;

@@ -71,6 +71,10 @@ const default_currency_options = {
   allow_space_after_digits: false,
 };
 
+/**
+ * @param {string} str
+ * @param {typeof default_currency_options} [options]
+ */
 export default function isCurrency(str, options) {
   assertString(str);
   options = merge(options, default_currency_options);

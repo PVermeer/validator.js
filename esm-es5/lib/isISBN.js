@@ -2,6 +2,10 @@ import assertString from './util/assertString';
 var isbn10Maybe = /^(?:[0-9]{9}X|[0-9]{10})$/;
 var isbn13Maybe = /^(?:[0-9]{13})$/;
 var factor = [1, 3];
+/**
+ * @param {string} str
+ * @param {10 | 13 | "10" | "13"} version
+ */
 export default function isISBN(str, version) {
     if (version === void 0) { version = ''; }
     assertString(str);

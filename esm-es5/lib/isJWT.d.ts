@@ -1,1 +1,4 @@
-export default function isJWT(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isJWT(str: string): boolean;

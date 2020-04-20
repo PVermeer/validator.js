@@ -31,6 +31,10 @@ import assertString from './util/assertString';
 const ipv4Maybe = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
 const ipv6Block = /^[0-9A-F]{1,4}$/i;
 
+/**
+ * @param {string} str
+ * @param {4 | 6 | "4" | "6"} [version]
+ */
 export default function isIP(str, version = '') {
   assertString(str);
   version = String(version);

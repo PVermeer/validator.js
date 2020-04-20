@@ -1,6 +1,10 @@
 import assertString from './util/assertString';
 import isIP from './isIP';
 var subnetMaybe = /^\d{1,2}$/;
+/**
+ * @param {string} str
+ */
+
 export default function isIPRange(str) {
   assertString(str);
   var parts = str.split('/'); // parts[0] -> ip, parts[1] -> subnet

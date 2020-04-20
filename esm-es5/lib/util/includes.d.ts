@@ -1,2 +1,2 @@
 export default includes;
-declare function includes(arr: any, val: any): any;
+declare function includes(arr: any[], val: string): boolean;

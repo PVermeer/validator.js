@@ -4,7 +4,7 @@
  *
  * @param {string[]} parts
  * @param {string} flags
- * @return {object} - RegExp object
+ * @return {RegExp} - RegExp object
  */
 export default function multilineRegexp(parts) {
   var flags = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';

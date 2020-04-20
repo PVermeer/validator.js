@@ -43,6 +43,10 @@ function checkHost(host, matches) {
   return false;
 }
 
+/**
+ * @param {string} url
+ * @param {typeof default_url_options} [options]
+ */
 export default function isURL(url, options) {
   assertString(url);
   if (!url || url.length >= 2083 || /[\s<>]/.test(url)) {

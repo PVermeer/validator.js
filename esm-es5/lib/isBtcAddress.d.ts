@@ -1,1 +1,4 @@
-export default function isBtcAddress(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isBtcAddress(str: string): boolean;

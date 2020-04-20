@@ -1,1 +1,5 @@
-export default function toBoolean(str: any, strict: any): boolean;
+/**
+ * @param {string} str
+ * @param {boolean} [strict]
+ */
+export default function toBoolean(str: string, strict?: boolean): boolean;

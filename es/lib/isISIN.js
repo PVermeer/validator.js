@@ -1,5 +1,9 @@
 import assertString from './util/assertString';
 var isin = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
+/**
+ * @param {string} str
+ */
+
 export default function isISIN(str) {
   assertString(str);
 

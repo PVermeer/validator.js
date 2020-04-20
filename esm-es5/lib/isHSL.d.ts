@@ -1,1 +1,4 @@
-export default function isHSL(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isHSL(str: string): boolean;

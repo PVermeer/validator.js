@@ -1,5 +1,9 @@
 import assertString from './util/assertString';
 var notBase64 = /[^A-Z0-9+\/=]/i;
+/**
+ * @param {string} str
+ */
+
 export default function isBase64(str) {
   assertString(str);
   var len = str.length;

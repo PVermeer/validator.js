@@ -2,6 +2,9 @@ import assertString from './util/assertString';
 var validMediaType = /^[a-z]+\/[a-z0-9\-\+]+$/i;
 var validAttribute = /^[a-z\-]+=[a-z0-9\-]+$/i;
 var validData = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
+/**
+ * @param {string} str
+ */
 export default function isDataURI(str) {
     assertString(str);
     var data = str.split(',');

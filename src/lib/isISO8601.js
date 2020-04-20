@@ -34,6 +34,10 @@ const isValidDate = (str) => {
   return true;
 };
 
+/**
+ * @param {string} str
+ * @param {{ strict: boolean; }} [options]
+ */
 export default function isISO8601(str, options) {
   assertString(str);
   const check = iso8601.test(str);

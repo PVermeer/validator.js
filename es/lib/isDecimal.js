@@ -14,6 +14,11 @@ var default_decimal_options = {
   locale: 'en-US'
 };
 var blacklist = ['', '-', '+'];
+/**
+ * @param {string} str
+ * @param {typeof default_decimal_options} options
+ */
+
 export default function isDecimal(str, options) {
   assertString(str);
   options = merge(options, default_decimal_options);

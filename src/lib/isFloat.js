@@ -1,6 +1,10 @@
 import assertString from './util/assertString';
 import { decimal } from './alpha';
 
+/**
+ * @param {string} str
+ * @param {{ locale?: string; min?: number; max?: number; lt?: number; gt?: number; } | undefined} [options]
+ */
 export default function isFloat(str, options) {
   assertString(str);
   options = options || {};

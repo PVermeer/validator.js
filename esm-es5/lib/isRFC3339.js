@@ -13,6 +13,9 @@ var partialTime = new RegExp(timeHour.source + ":" + timeMinute.source + ":" + t
 var fullDate = new RegExp(dateFullYear.source + "-" + dateMonth.source + "-" + dateMDay.source);
 var fullTime = new RegExp("" + partialTime.source + timeOffset.source);
 var rfc3339 = new RegExp(fullDate.source + "[ tT]" + fullTime.source);
+/**
+ * @param {string} str
+ */
 export default function isRFC3339(str) {
     assertString(str);
     return rfc3339.test(str);

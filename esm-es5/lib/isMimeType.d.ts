@@ -1,1 +1,4 @@
-export default function isMimeType(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isMimeType(str: string): boolean;

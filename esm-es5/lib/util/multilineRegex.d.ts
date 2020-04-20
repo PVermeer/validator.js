@@ -4,6 +4,6 @@
  *
  * @param {string[]} parts
  * @param {string} flags
- * @return {object} - RegExp object
+ * @return {RegExp} - RegExp object
  */
-export default function multilineRegexp(parts: string[], flags?: string): any;
+export default function multilineRegexp(parts: string[], flags?: string): RegExp;

@@ -16,6 +16,10 @@ const lengths = {
   crc32b: 8,
 };
 
+/**
+ * @param {string} str
+ * @param {keyof lengths} algorithm
+ */
 export default function isHash(str, algorithm) {
   assertString(str);
   const hash = new RegExp(`^[a-fA-F0-9]{${lengths[algorithm]}}$`);

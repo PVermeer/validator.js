@@ -1,1 +1,4 @@
-export default function isIPRange(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isIPRange(str: string): boolean;

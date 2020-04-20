@@ -13,6 +13,9 @@ function zip(date, format) {
   return zippedArr;
 }
 
+/**
+ * @param {string} input
+ */
 export default function isDate(input, format = 'YYYY/MM/DD') {
   if (typeof input === 'string' && isValidFormat(format)) {
     const splitter = /[-/]/,

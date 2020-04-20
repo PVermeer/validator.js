@@ -14,6 +14,10 @@ var partialTime = new RegExp("".concat(timeHour.source, ":").concat(timeMinute.s
 var fullDate = new RegExp("".concat(dateFullYear.source, "-").concat(dateMonth.source, "-").concat(dateMDay.source));
 var fullTime = new RegExp("".concat(partialTime.source).concat(timeOffset.source));
 var rfc3339 = new RegExp("".concat(fullDate.source, "[ tT]").concat(fullTime.source));
+/**
+ * @param {string} str
+ */
+
 export default function isRFC3339(str) {
   assertString(str);
   return rfc3339.test(str);

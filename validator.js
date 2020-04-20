@@ -153,6 +153,9 @@ function _createForOfIteratorHelper(o) {
   };
 }
 
+/**
+ * @param {any} input
+ */
 function assertString(input) {
   var isString = typeof input === 'string' || input instanceof String;
 
@@ -174,6 +177,10 @@ function assertString(input) {
     throw new TypeError("Expected string but received ".concat(invalidType, "."));
   }
 }
+
+/**
+ * @param {string | number | Date} date
+ */
 
 function toDate(date) {
   assertString(date);
@@ -282,6 +289,11 @@ alpha['pl-Pl'] = alpha['pl-PL'];
 alphanumeric['pl-Pl'] = alphanumeric['pl-PL'];
 decimal['pl-Pl'] = decimal['pl-PL'];
 
+/**
+ * @param {string} str
+ * @param {{ locale?: string; min?: number; max?: number; lt?: number; gt?: number; } | undefined} [options]
+ */
+
 function isFloat(str, options) {
   assertString(str);
   options = options || {};
@@ -297,15 +309,29 @@ function isFloat(str, options) {
 }
 var locales = Object.keys(decimal);
 
+/**
+ * @param {string} str
+ */
+
 function toFloat(str) {
   if (!isFloat(str)) return NaN;
   return parseFloat(str);
 }
 
+/**
+ * @param {string} str
+ * @param {number} [radix]
+ */
+
 function toInt(str, radix) {
   assertString(str);
   return parseInt(str, radix || 10);
 }
+
+/**
+ * @param {string} str
+ * @param {boolean} [strict]
+ */
 
 function toBoolean(str, strict) {
   assertString(str);
@@ -317,11 +343,19 @@ function toBoolean(str, strict) {
   return str !== '0' && !/^false$/i.test(str) && str !== '';
 }
 
+/**
+ * @param {string} str
+ * @param {string} comparison
+ */
+
 function equals(str, comparison) {
   assertString(str);
   return str === comparison;
 }
 
+/**
+ * @param {any} input
+ */
 function toString$1(input) {
   if (_typeof(input) === 'object' && input !== null) {
     if (typeof input.toString === 'function') {
@@ -336,10 +370,21 @@ function toString$1(input) {
   return String(input);
 }
 
+/**
+ * @param {string | string[]} str
+ * @param {any} elem
+ */
+
 function contains(str, elem) {
   assertString(str);
   return str.indexOf(toString$1(elem)) >= 0;
 }
+
+/**
+ * @param {any} str
+ * @param {string | RegExp} pattern
+ * @param {string} [modifiers]
+ */
 
 function matches(str, pattern, modifiers) {
   assertString(str);
@@ -351,6 +396,9 @@ function matches(str, pattern, modifiers) {
   return pattern.test(str);
 }
 
+/**
+ * @returns { any }
+ */
 function merge() {
   var obj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var defaults = arguments.length > 1 ? arguments[1] : undefined;
@@ -365,6 +413,11 @@ function merge() {
 }
 
 /* eslint-disable prefer-rest-params */
+
+/**
+ * @param {string} str
+ * @param {{ min?: any; max?: any; }} [options]
+ */
 
 function isByteLength(str, options) {
   assertString(str);
@@ -389,6 +442,11 @@ var default_fqdn_options = {
   allow_underscores: false,
   allow_trailing_dot: false
 };
+/**
+ * @param {string} str
+ * @param {typeof default_fqdn_options} [options]
+ */
+
 function isFQDN(str, options) {
   assertString(str);
   options = merge(options, default_fqdn_options);
@@ -475,6 +533,11 @@ function isFQDN(str, options) {
 
 var ipv4Maybe = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
 var ipv6Block = /^[0-9A-F]{1,4}$/i;
+/**
+ * @param {string} str
+ * @param {4 | 6 | "4" | "6"} [version]
+ */
+
 function isIP(str) {
   var version = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   assertString(str);
@@ -621,6 +684,11 @@ function validateDisplayName(display_name) {
 
   return true;
 }
+/**
+ * @param {string} str
+ * @param {typeof default_email_options} [options]
+ */
+
 
 function isEmail(str, options) {
   assertString(str);
@@ -773,6 +841,11 @@ function checkHost(host, matches) {
 
   return false;
 }
+/**
+ * @param {string} url
+ * @param {typeof default_url_options} [options]
+ */
+
 
 function isURL(url, options) {
   assertString(url);
@@ -884,6 +957,11 @@ var macAddressNoColons = /^([0-9a-fA-F]){12}$/;
 var macAddressWithHyphen = /^([0-9a-fA-F][0-9a-fA-F]-){5}([0-9a-fA-F][0-9a-fA-F])$/;
 var macAddressWithSpaces = /^([0-9a-fA-F][0-9a-fA-F]\s){5}([0-9a-fA-F][0-9a-fA-F])$/;
 var macAddressWithDots = /^([0-9a-fA-F]{4}).([0-9a-fA-F]{4}).([0-9a-fA-F]{4})$/;
+/**
+ * @param {string} str
+ * @param {{ no_colons: boolean; }} [options]
+ */
+
 function isMACAddress(str, options) {
   assertString(str);
 
@@ -895,6 +973,10 @@ function isMACAddress(str, options) {
 }
 
 var subnetMaybe = /^\d{1,2}$/;
+/**
+ * @param {string} str
+ */
+
 function isIPRange(str) {
   assertString(str);
   var parts = str.split('/'); // parts[0] -> ip, parts[1] -> subnet
@@ -929,6 +1011,10 @@ function zip(date, format) {
 
   return zippedArr;
 }
+/**
+ * @param {string} input
+ */
+
 
 function isDate(input) {
   var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'YYYY/MM/DD';
@@ -965,12 +1051,20 @@ function isDate(input) {
   return Object.prototype.toString.call(input) === '[object Date]' && isFinite(input);
 }
 
+/**
+ * @param {string} str
+ */
+
 function isBoolean(str) {
   assertString(str);
   return ['true', 'false', '1', '0'].indexOf(str) >= 0;
 }
 
 var localeReg = /^[A-z]{2,4}([_-]([A-z]{4}|[\d]{3}))?([_-]([A-z]{2}|[\d]{3}))?$/;
+/**
+ * @param {string} str
+ */
+
 function isLocale(str) {
   assertString(str);
 
@@ -980,6 +1074,10 @@ function isLocale(str) {
 
   return localeReg.test(str);
 }
+
+/**
+ * @param {string} str
+ */
 
 function isAlpha(str) {
   var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'en-US';
@@ -992,6 +1090,10 @@ function isAlpha(str) {
   throw new Error("Invalid locale '".concat(locale, "'"));
 }
 var locales$1 = Object.keys(alpha);
+
+/**
+ * @param {string} str
+ */
 
 function isAlphanumeric(str) {
   var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'en-US';
@@ -1007,6 +1109,11 @@ var locales$2 = Object.keys(alphanumeric);
 
 var numeric = /^[+-]?([0-9]*[.])?[0-9]+$/;
 var numericNoSymbols = /^[0-9]+$/;
+/**
+ * @param {string} str
+ * @param {{ no_symbols: boolean; }} [options]
+ */
+
 function isNumeric(str, options) {
   assertString(str);
 
@@ -1124,6 +1231,11 @@ function isPassportNumber(str, countryCode) {
 
 var _int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
 var intLeadingZeroes = /^[-+]?[0-9]+$/;
+/**
+ * @param {string} str
+ * @param {{ min?: number; max?: number; allow_leading_zeroes?: boolean; lt?: number; gt?: number; }} [options]
+ */
+
 function isInt(str, options) {
   assertString(str);
   options = options || {}; // Get the regex to use for testing, based on whether
@@ -1138,6 +1250,10 @@ function isInt(str, options) {
   return regex.test(str) && minCheckPassed && maxCheckPassed && ltCheckPassed && gtCheckPassed;
 }
 
+/**
+ * @param {string} str
+ */
+
 function isPort(str) {
   return isInt(str, {
     min: 0,
@@ -1145,10 +1261,18 @@ function isPort(str) {
   });
 }
 
+/**
+ * @param {string} str
+ */
+
 function isLowercase(str) {
   assertString(str);
   return str === str.toLowerCase();
 }
+
+/**
+ * @param {string} str
+ */
 
 function isUppercase(str) {
   assertString(str);
@@ -1160,22 +1284,38 @@ function isUppercase(str) {
 var ascii = /^[\x00-\x7F]+$/;
 /* eslint-enable no-control-regex */
 
+/**
+ * @param {string} str
+ */
+
 function isAscii(str) {
   assertString(str);
   return ascii.test(str);
 }
 
 var fullWidth = /[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
+/**
+ * @param {string} str
+ */
+
 function isFullWidth(str) {
   assertString(str);
   return fullWidth.test(str);
 }
 
 var halfWidth = /[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
+/**
+ * @param {string} str
+ */
+
 function isHalfWidth(str) {
   assertString(str);
   return halfWidth.test(str);
 }
+
+/**
+ * @param {string} str
+ */
 
 function isVariableWidth(str) {
   assertString(str);
@@ -1186,6 +1326,10 @@ function isVariableWidth(str) {
 
 var multibyte = /[^\x00-\x7F]/;
 /* eslint-enable no-control-regex */
+
+/**
+ * @param {string} str
+ */
 
 function isMultibyte(str) {
   assertString(str);
@@ -1198,7 +1342,7 @@ function isMultibyte(str) {
  *
  * @param {string[]} parts
  * @param {string} flags
- * @return {object} - RegExp object
+ * @return {RegExp} - RegExp object
  */
 function multilineRegexp(parts) {
   var flags = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -1214,17 +1358,29 @@ function multilineRegexp(parts) {
  */
 
 var semanticVersioningRegex = multilineRegexp(['^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)', '(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))', '?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$']);
+/**
+ * @param {string} str
+ */
+
 function isSemVer(str) {
   assertString(str);
   return semanticVersioningRegex.test(str);
 }
 
 var surrogatePair = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
+/**
+ * @param {string} str
+ */
+
 function isSurrogatePair(str) {
   assertString(str);
   return surrogatePair.test(str);
 }
 
+/**
+ * @param {any[]} arr
+ * @param {string} val
+ */
 var includes = function includes(arr, val) {
   return arr.some(function (arrVal) {
     return val === arrVal;
@@ -1242,6 +1398,11 @@ var default_decimal_options = {
   locale: 'en-US'
 };
 var blacklist = ['', '-', '+'];
+/**
+ * @param {string} str
+ * @param {typeof default_decimal_options} options
+ */
+
 function isDecimal(str, options) {
   assertString(str);
   options = merge(options, default_decimal_options);
@@ -1254,16 +1415,29 @@ function isDecimal(str, options) {
 }
 
 var hexadecimal = /^(0x|0h)?[0-9A-F]+$/i;
+/**
+ * @param {string} str
+ */
+
 function isHexadecimal(str) {
   assertString(str);
   return hexadecimal.test(str);
 }
 
 var octal = /^(0o)?[0-7]+$/i;
+/**
+ * @param {string} str
+ */
+
 function isOctal(str) {
   assertString(str);
   return octal.test(str);
 }
+
+/**
+ * @param {string} str
+ * @param {number | string} num
+ */
 
 function isDivisibleBy(str, num) {
   assertString(str);
@@ -1271,6 +1445,10 @@ function isDivisibleBy(str, num) {
 }
 
 var hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6}|[0-9A-F]{8})$/i;
+/**
+ * @param {string} str
+ */
+
 function isHexColor(str) {
   assertString(str);
   return hexcolor.test(str);
@@ -1280,6 +1458,10 @@ var rgbColor = /^rgb\((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),){2}([
 var rgbaColor = /^rgba\((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),){3}(0?\.\d|1(\.0)?|0(\.0)?)\)$/;
 var rgbColorPercent = /^rgb\((([0-9]%|[1-9][0-9]%|100%),){2}([0-9]%|[1-9][0-9]%|100%)\)/;
 var rgbaColorPercent = /^rgba\((([0-9]%|[1-9][0-9]%|100%),){3}(0?\.\d|1(\.0)?|0(\.0)?)\)/;
+/**
+ * @param {string} str
+ */
+
 function isRgbColor(str) {
   var includePercentValues = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
   assertString(str);
@@ -1293,12 +1475,20 @@ function isRgbColor(str) {
 
 var hslcomma = /^(hsl)a?\(\s*((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?))(deg|grad|rad|turn|\s*)(\s*,\s*(\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%){2}\s*(,\s*((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%?)\s*)?\)$/i;
 var hslspace = /^(hsl)a?\(\s*((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?))(deg|grad|rad|turn|\s)(\s*(\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%){2}\s*(\/\s*((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%?)\s*)?\)$/i;
+/**
+ * @param {string} str
+ */
+
 function isHSL(str) {
   assertString(str);
   return hslcomma.test(str) || hslspace.test(str);
 }
 
 var isrc = /^[A-Z]{2}[0-9A-Z]{3}\d{2}\d{5}$/;
+/**
+ * @param {string} str
+ */
+
 function isISRC(str) {
   assertString(str);
   return isrc.test(str);
@@ -1431,6 +1621,10 @@ function hasValidIbanChecksum(str) {
   }, '');
   return remainder === 1;
 }
+/**
+ * @param {string} str
+ */
+
 
 function isIBAN(str) {
   assertString(str);
@@ -1438,12 +1632,20 @@ function isIBAN(str) {
 }
 
 var isBICReg = /^[A-z]{4}[A-z]{2}\w{2}(\w{3})?$/;
+/**
+ * @param {string} str
+ */
+
 function isBIC(str) {
   assertString(str);
   return isBICReg.test(str);
 }
 
 var md5 = /^[a-f0-9]{32}$/;
+/**
+ * @param {string} str
+ */
+
 function isMD5(str) {
   assertString(str);
   return md5.test(str);
@@ -1464,6 +1666,11 @@ var lengths = {
   crc32: 8,
   crc32b: 8
 };
+/**
+ * @param {string} str
+ * @param {keyof lengths} algorithm
+ */
+
 function isHash(str, algorithm) {
   assertString(str);
   var hash = new RegExp("^[a-fA-F0-9]{".concat(lengths[algorithm], "}$"));
@@ -1471,10 +1678,18 @@ function isHash(str, algorithm) {
 }
 
 var jwt = /^([A-Za-z0-9\-_~+\/]+[=]{0,2})\.([A-Za-z0-9\-_~+\/]+[=]{0,2})(?:\.([A-Za-z0-9\-_~+\/]+[=]{0,2}))?$/;
+/**
+ * @param {string} str
+ */
+
 function isJWT(str) {
   assertString(str);
   return jwt.test(str);
 }
+
+/**
+ * @param {string} str
+ */
 
 function isJSON(str) {
   assertString(str);
@@ -1492,6 +1707,11 @@ function isJSON(str) {
 var default_is_empty_options = {
   ignore_whitespace: false
 };
+/**
+ * @param {string} str
+ * @param {typeof default_is_empty_options} [options]
+ */
+
 function isEmpty(str, options) {
   assertString(str);
   options = merge(options, default_is_empty_options);
@@ -1499,6 +1719,11 @@ function isEmpty(str, options) {
 }
 
 /* eslint-disable prefer-rest-params */
+
+/**
+ * @param {string} str
+ * @param {{ min?: number; max?: number; }} [options]
+ */
 
 function isLength(str, options) {
   assertString(str);
@@ -1525,6 +1750,10 @@ var uuid = {
   5: /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
   all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
 };
+/**
+ * @param {string} str
+ */
+
 function isUUID(str) {
   var version = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'all';
   assertString(str);
@@ -1532,10 +1761,19 @@ function isUUID(str) {
   return pattern && pattern.test(str);
 }
 
+/**
+ * @param {string} str
+ */
+
 function isMongoId(str) {
   assertString(str);
   return isHexadecimal(str) && str.length === 24;
 }
+
+/**
+ * @param {string} str
+ * @param {string | number | date} [date]
+ */
 
 function isAfter(str) {
   var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : String(new Date());
@@ -1545,6 +1783,11 @@ function isAfter(str) {
   return !!(original && comparison && original > comparison);
 }
 
+/**
+ * @param {string} str
+ * @param {string | number | date} [date]
+ */
+
 function isBefore(str) {
   var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : String(new Date());
   assertString(str);
@@ -1552,6 +1795,11 @@ function isBefore(str) {
   var original = toDate(str);
   return !!(original && comparison && original < comparison);
 }
+
+/**
+ * @param {string} str
+ * @param {any[]} options
+ */
 
 function isIn(str, options) {
   assertString(str);
@@ -1582,6 +1830,10 @@ function isIn(str, options) {
 
 var creditCard = /^(?:4[0-9]{12}(?:[0-9]{3,6})?|5[1-5][0-9]{14}|(222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}|6(?:011|5[0-9][0-9])[0-9]{12,15}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11}|6[27][0-9]{14})$/;
 /* eslint-enable max-len */
+
+/**
+ * @param {string} str
+ */
 
 function isCreditCard(str) {
   assertString(str);
@@ -1839,6 +2091,11 @@ var validators = {
     }, 0);
   }
 };
+/**
+ * @param {string} str
+ * @param {string} [locale]
+ */
+
 function isIdentityCard(str, locale) {
   assertString(str);
 
@@ -1931,6 +2188,10 @@ function isEAN(str) {
 }
 
 var isin = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
+/**
+ * @param {string} str
+ */
+
 function isISIN(str) {
   assertString(str);
 
@@ -1971,6 +2232,11 @@ function isISIN(str) {
 var isbn10Maybe = /^(?:[0-9]{9}X|[0-9]{10})$/;
 var isbn13Maybe = /^(?:[0-9]{13})$/;
 var factor = [1, 3];
+/**
+ * @param {string} str
+ * @param {10 | 13 | "10" | "13"} version
+ */
+
 function isISBN(str) {
   var version = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   assertString(str);
@@ -2020,6 +2286,11 @@ function isISBN(str) {
 }
 
 var issn = '^\\d{4}-?\\d{3}[\\dX]$';
+/**
+ * @param {string} str
+ * @param {{ case_sensitive: boolean, require_hyphen: boolean }} [options]
+ */
+
 function isISSN(str) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   assertString(str);
@@ -2142,6 +2413,12 @@ phones['en-CA'] = phones['en-US'];
 phones['fr-BE'] = phones['nl-BE'];
 phones['zh-HK'] = phones['en-HK'];
 phones['zh-MO'] = phones['en-MO'];
+/**
+ * @param {string} str
+ * @param {string} [locale]
+ * @param {{ strictMode: boolean; }} [options]
+ */
+
 function isMobilePhone(str, locale, options) {
   assertString(str);
 
@@ -2185,6 +2462,10 @@ function isMobilePhone(str, locale, options) {
 var locales$3 = Object.keys(phones);
 
 var eth = /^(0x)[0-9a-f]{40}$/i;
+/**
+ * @param {string} str
+ */
+
 function isEthereumAddress(str) {
   assertString(str);
   return eth.test(str);
@@ -2257,6 +2538,11 @@ var default_currency_options = {
   digits_after_decimal: [2],
   allow_space_after_digits: false
 };
+/**
+ * @param {string} str
+ * @param {typeof default_currency_options} [options]
+ */
+
 function isCurrency(str, options) {
   assertString(str);
   options = merge(options, default_currency_options);
@@ -2264,6 +2550,10 @@ function isCurrency(str, options) {
 }
 
 var btc = /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$/;
+/**
+ * @param {string} str
+ */
+
 function isBtcAddress(str) {
   assertString(str);
   return btc.test(str);
@@ -2305,6 +2595,11 @@ var isValidDate = function isValidDate(str) {
 
   return true;
 };
+/**
+ * @param {string} str
+ * @param {{ strict: boolean; }} [options]
+ */
+
 
 function isISO8601(str, options) {
   assertString(str);
@@ -2329,24 +2624,40 @@ var partialTime = new RegExp("".concat(timeHour.source, ":").concat(timeMinute.s
 var fullDate = new RegExp("".concat(dateFullYear.source, "-").concat(dateMonth.source, "-").concat(dateMDay.source));
 var fullTime = new RegExp("".concat(partialTime.source).concat(timeOffset.source));
 var rfc3339 = new RegExp("".concat(fullDate.source, "[ tT]").concat(fullTime.source));
+/**
+ * @param {string} str
+ */
+
 function isRFC3339(str) {
   assertString(str);
   return rfc3339.test(str);
 }
 
 var validISO31661Alpha2CountriesCodes = ['AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AX', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS', 'BT', 'BV', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FM', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GF', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GP', 'GQ', 'GR', 'GS', 'GT', 'GU', 'GW', 'GY', 'HK', 'HM', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MQ', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NE', 'NF', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PS', 'PT', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'SS', 'ST', 'SV', 'SX', 'SY', 'SZ', 'TC', 'TD', 'TF', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'UM', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW'];
+/**
+ * @param {string} str
+ */
+
 function isISO31661Alpha2(str) {
   assertString(str);
   return includes(validISO31661Alpha2CountriesCodes, str.toUpperCase());
 }
 
 var validISO31661Alpha3CountriesCodes = ['AFG', 'ALA', 'ALB', 'DZA', 'ASM', 'AND', 'AGO', 'AIA', 'ATA', 'ATG', 'ARG', 'ARM', 'ABW', 'AUS', 'AUT', 'AZE', 'BHS', 'BHR', 'BGD', 'BRB', 'BLR', 'BEL', 'BLZ', 'BEN', 'BMU', 'BTN', 'BOL', 'BES', 'BIH', 'BWA', 'BVT', 'BRA', 'IOT', 'BRN', 'BGR', 'BFA', 'BDI', 'KHM', 'CMR', 'CAN', 'CPV', 'CYM', 'CAF', 'TCD', 'CHL', 'CHN', 'CXR', 'CCK', 'COL', 'COM', 'COG', 'COD', 'COK', 'CRI', 'CIV', 'HRV', 'CUB', 'CUW', 'CYP', 'CZE', 'DNK', 'DJI', 'DMA', 'DOM', 'ECU', 'EGY', 'SLV', 'GNQ', 'ERI', 'EST', 'ETH', 'FLK', 'FRO', 'FJI', 'FIN', 'FRA', 'GUF', 'PYF', 'ATF', 'GAB', 'GMB', 'GEO', 'DEU', 'GHA', 'GIB', 'GRC', 'GRL', 'GRD', 'GLP', 'GUM', 'GTM', 'GGY', 'GIN', 'GNB', 'GUY', 'HTI', 'HMD', 'VAT', 'HND', 'HKG', 'HUN', 'ISL', 'IND', 'IDN', 'IRN', 'IRQ', 'IRL', 'IMN', 'ISR', 'ITA', 'JAM', 'JPN', 'JEY', 'JOR', 'KAZ', 'KEN', 'KIR', 'PRK', 'KOR', 'KWT', 'KGZ', 'LAO', 'LVA', 'LBN', 'LSO', 'LBR', 'LBY', 'LIE', 'LTU', 'LUX', 'MAC', 'MKD', 'MDG', 'MWI', 'MYS', 'MDV', 'MLI', 'MLT', 'MHL', 'MTQ', 'MRT', 'MUS', 'MYT', 'MEX', 'FSM', 'MDA', 'MCO', 'MNG', 'MNE', 'MSR', 'MAR', 'MOZ', 'MMR', 'NAM', 'NRU', 'NPL', 'NLD', 'NCL', 'NZL', 'NIC', 'NER', 'NGA', 'NIU', 'NFK', 'MNP', 'NOR', 'OMN', 'PAK', 'PLW', 'PSE', 'PAN', 'PNG', 'PRY', 'PER', 'PHL', 'PCN', 'POL', 'PRT', 'PRI', 'QAT', 'REU', 'ROU', 'RUS', 'RWA', 'BLM', 'SHN', 'KNA', 'LCA', 'MAF', 'SPM', 'VCT', 'WSM', 'SMR', 'STP', 'SAU', 'SEN', 'SRB', 'SYC', 'SLE', 'SGP', 'SXM', 'SVK', 'SVN', 'SLB', 'SOM', 'ZAF', 'SGS', 'SSD', 'ESP', 'LKA', 'SDN', 'SUR', 'SJM', 'SWZ', 'SWE', 'CHE', 'SYR', 'TWN', 'TJK', 'TZA', 'THA', 'TLS', 'TGO', 'TKL', 'TON', 'TTO', 'TUN', 'TUR', 'TKM', 'TCA', 'TUV', 'UGA', 'UKR', 'ARE', 'GBR', 'USA', 'UMI', 'URY', 'UZB', 'VUT', 'VEN', 'VNM', 'VGB', 'VIR', 'WLF', 'ESH', 'YEM', 'ZMB', 'ZWE'];
+/**
+ * @param {string} str
+ */
+
 function isISO31661Alpha3(str) {
   assertString(str);
   return includes(validISO31661Alpha3CountriesCodes, str.toUpperCase());
 }
 
 var base32 = /^[A-Z2-7]+=*$/;
+/**
+ * @param {string} str
+ */
+
 function isBase32(str) {
   assertString(str);
   var len = str.length;
@@ -2359,6 +2670,10 @@ function isBase32(str) {
 }
 
 var notBase64 = /[^A-Z0-9+\/=]/i;
+/**
+ * @param {string} str
+ */
+
 function isBase64(str) {
   assertString(str);
   var len = str.length;
@@ -2374,6 +2689,10 @@ function isBase64(str) {
 var validMediaType = /^[a-z]+\/[a-z0-9\-\+]+$/i;
 var validAttribute = /^[a-z\-]+=[a-z0-9\-]+$/i;
 var validData = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
+/**
+ * @param {string} str
+ */
+
 function isDataURI(str) {
   assertString(str);
   var data = str.split(',');
@@ -2412,6 +2731,10 @@ function isDataURI(str) {
 }
 
 var magnetURI = /^magnet:\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+$/i;
+/**
+ * @param {string} url
+ */
+
 function isMagnetURI(url) {
   assertString(url);
   return magnetURI.test(url.trim());
@@ -2451,6 +2774,10 @@ var mimeTypeText = /^text\/[a-zA-Z0-9\.\-\+]{1,100};\s?charset=("[a-zA-Z0-9\.\-\
 
 var mimeTypeMultipart = /^multipart\/[a-zA-Z0-9\.\-\+]{1,100}(;\s?(boundary|charset)=("[a-zA-Z0-9\.\-\+\s]{0,70}"|[a-zA-Z0-9\.\-\+]{0,70})(\s?\([a-zA-Z0-9\.\-\+\s]{1,20}\))?){0,2}$/i; // eslint-disable-line max-len
 
+/**
+ * @param {string} str
+ */
+
 function isMimeType(str) {
   assertString(str);
   return mimeTypeSimple.test(str) || mimeTypeText.test(str) || mimeTypeMultipart.test(str);
@@ -2458,6 +2785,10 @@ function isMimeType(str) {
 
 var lat = /^\(?[+-]?(90(\.0+)?|[1-8]?\d(\.\d+)?)$/;
 var _long = /^\s?[+-]?(180(\.0+)?|1[0-7]\d(\.\d+)?|\d{1,2}(\.\d+)?)\)?$/;
+/**
+ * @param {string} str
+ */
+
 var isLatLong = function (str) {
   assertString(str);
   if (!str.includes(',')) return false;
@@ -2525,7 +2856,12 @@ var patterns = {
   ZM: fiveDigit
 };
 var locales$4 = Object.keys(patterns);
-var isPostalCode = function (str, locale) {
+/**
+ * @param {string} str
+ * @param {string} locale
+ */
+
+function isPostalCode(str, locale) {
   assertString(str);
 
   if (locale in patterns) {
@@ -2547,7 +2883,12 @@ var isPostalCode = function (str, locale) {
   }
 
   throw new Error("Invalid locale '".concat(locale, "'"));
-};
+}
+
+/**
+ * @param {string} str
+ * @param {string} chars
+ */
 
 function ltrim(str, chars) {
   assertString(str); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
@@ -2556,6 +2897,11 @@ function ltrim(str, chars) {
   return str.replace(pattern, '');
 }
 
+/**
+ * @param {string} str
+ * @param {string} chars
+ */
+
 function rtrim(str, chars) {
   assertString(str); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
 
@@ -2563,24 +2909,47 @@ function rtrim(str, chars) {
   return str.replace(pattern, '');
 }
 
+/**
+ * @param {string} str
+ * @param {string} [chars]
+ */
+
 function trim(str, chars) {
   return rtrim(ltrim(str, chars), chars);
 }
+
+/**
+ * @param {string} str
+ */
 
 function escape(str) {
   assertString(str);
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, '&#x2F;').replace(/\\/g, '&#x5C;').replace(/`/g, '&#96;');
 }
 
+/**
+ * @param {string} str
+ */
+
 function unescape(str) {
   assertString(str);
   return str.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#x2F;/g, '/').replace(/&#x5C;/g, '\\').replace(/&#96;/g, '`');
 }
 
+/**
+ * @param {string} str
+ * @param {string} chars
+ */
+
 function blacklist$1(str, chars) {
   assertString(str);
   return str.replace(new RegExp("[".concat(chars, "]+"), 'g'), '');
 }
+
+/**
+ * @param {string} str
+ * @param {boolean} [keep_new_lines]
+ */
 
 function stripLow(str, keep_new_lines) {
   assertString(str);
@@ -2588,10 +2957,20 @@ function stripLow(str, keep_new_lines) {
   return blacklist$1(str, chars);
 }
 
+/**
+ * @param {string} str
+ * @param {string} chars
+ */
+
 function whitelist(str, chars) {
   assertString(str);
   return str.replace(new RegExp("[^".concat(chars, "]+"), 'g'), '');
 }
+
+/**
+ * @param {string} str
+ * @param {string} chars
+ */
 
 function isWhitelisted(str, chars) {
   assertString(str);
@@ -2659,6 +3038,11 @@ function dotsReplacer(match) {
 
   return '';
 }
+/**
+ * @param {string} email
+ * @param {default_normalize_email_options} [options]
+ */
+
 
 function normalizeEmail(email, options) {
   options = merge(options, default_normalize_email_options);
@@ -2744,6 +3128,10 @@ function normalizeEmail(email, options) {
 }
 
 var charsetRegex = /^[^-_](?!.*?[-_]{2,})([a-z0-9\\-]{1,}).*[^-_]$/;
+/**
+ * @param {string} str
+ */
+
 function isSlug(str) {
   assertString(str);
   return charsetRegex.test(str);

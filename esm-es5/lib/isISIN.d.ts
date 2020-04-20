@@ -1,1 +1,4 @@
-export default function isISIN(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isISIN(str: string): boolean;

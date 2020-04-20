@@ -1,1 +1,4 @@
-export default function isRgbColor(str: any, includePercentValues?: boolean): boolean;
+/**
+ * @param {string} str
+ */
+export default function isRgbColor(str: string, includePercentValues?: boolean): boolean;

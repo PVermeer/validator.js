@@ -1,1 +1,4 @@
-export default function isUppercase(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isUppercase(str: string): boolean;

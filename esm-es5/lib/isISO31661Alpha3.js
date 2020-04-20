@@ -19,6 +19,9 @@ var validISO31661Alpha3CountriesCodes = [
     'TON', 'TTO', 'TUN', 'TUR', 'TKM', 'TCA', 'TUV', 'UGA', 'UKR', 'ARE', 'GBR', 'USA', 'UMI', 'URY', 'UZB', 'VUT',
     'VEN', 'VNM', 'VGB', 'VIR', 'WLF', 'ESH', 'YEM', 'ZMB', 'ZWE',
 ];
+/**
+ * @param {string} str
+ */
 export default function isISO31661Alpha3(str) {
     assertString(str);
     return includes(validISO31661Alpha3CountriesCodes, str.toUpperCase());

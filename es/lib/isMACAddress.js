@@ -4,6 +4,11 @@ var macAddressNoColons = /^([0-9a-fA-F]){12}$/;
 var macAddressWithHyphen = /^([0-9a-fA-F][0-9a-fA-F]-){5}([0-9a-fA-F][0-9a-fA-F])$/;
 var macAddressWithSpaces = /^([0-9a-fA-F][0-9a-fA-F]\s){5}([0-9a-fA-F][0-9a-fA-F])$/;
 var macAddressWithDots = /^([0-9a-fA-F]{4}).([0-9a-fA-F]{4}).([0-9a-fA-F]{4})$/;
+/**
+ * @param {string} str
+ * @param {{ no_colons: boolean; }} [options]
+ */
+
 export default function isMACAddress(str, options) {
   assertString(str);
 

@@ -21,6 +21,9 @@ const fullTime = new RegExp(`${partialTime.source}${timeOffset.source}`);
 
 const rfc3339 = new RegExp(`${fullDate.source}[ tT]${fullTime.source}`);
 
+/**
+ * @param {string} str
+ */
 export default function isRFC3339(str) {
   assertString(str);
   return rfc3339.test(str);

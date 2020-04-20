@@ -3,6 +3,9 @@ import isIP from './isIP';
 
 const subnetMaybe = /^\d{1,2}$/;
 
+/**
+ * @param {string} str
+ */
 export default function isIPRange(str) {
   assertString(str);
   const parts = str.split('/');

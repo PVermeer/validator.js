@@ -3,6 +3,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 import assertString from './util/assertString';
 /* eslint-disable prefer-rest-params */
 
+/**
+ * @param {string} str
+ * @param {{ min?: any; max?: any; }} [options]
+ */
+
 export default function isByteLength(str, options) {
   assertString(str);
   var min;

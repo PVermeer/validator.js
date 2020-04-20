@@ -21,6 +21,9 @@ const validISO31661Alpha3CountriesCodes = [
   'VEN', 'VNM', 'VGB', 'VIR', 'WLF', 'ESH', 'YEM', 'ZMB', 'ZWE',
 ];
 
+/**
+ * @param {string} str
+ */
 export default function isISO31661Alpha3(str) {
   assertString(str);
   return includes(validISO31661Alpha3CountriesCodes, str.toUpperCase());

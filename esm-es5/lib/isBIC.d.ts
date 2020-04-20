@@ -1,1 +1,4 @@
-export default function isBIC(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isBIC(str: string): boolean;

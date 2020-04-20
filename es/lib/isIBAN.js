@@ -126,6 +126,10 @@ function hasValidIbanChecksum(str) {
   }, '');
   return remainder === 1;
 }
+/**
+ * @param {string} str
+ */
+
 
 export default function isIBAN(str) {
   assertString(str);

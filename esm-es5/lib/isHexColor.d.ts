@@ -1,1 +1,4 @@
-export default function isHexColor(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isHexColor(str: string): boolean;

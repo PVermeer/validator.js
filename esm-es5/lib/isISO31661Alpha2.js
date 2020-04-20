@@ -28,6 +28,9 @@ var validISO31661Alpha2CountriesCodes = [
     'YE', 'YT',
     'ZA', 'ZM', 'ZW',
 ];
+/**
+ * @param {string} str
+ */
 export default function isISO31661Alpha2(str) {
     assertString(str);
     return includes(validISO31661Alpha2CountriesCodes, str.toUpperCase());

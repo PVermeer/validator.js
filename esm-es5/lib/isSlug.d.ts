@@ -1,1 +1,4 @@
-export default function isSlug(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isSlug(str: string): boolean;

@@ -231,6 +231,10 @@ const validators = {
   },
 };
 
+/**
+ * @param {string} str
+ * @param {string} [locale]
+ */
 export default function isIdentityCard(str, locale) {
   assertString(str);
   if (locale in validators) {

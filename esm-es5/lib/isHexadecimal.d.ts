@@ -1,1 +1,4 @@
-export default function isHexadecimal(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isHexadecimal(str: string): boolean;

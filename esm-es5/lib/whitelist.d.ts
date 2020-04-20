@@ -1,1 +1,5 @@
-export default function whitelist(str: any, chars: any): any;
+/**
+ * @param {string} str
+ * @param {string} chars
+ */
+export default function whitelist(str: string, chars: string): string;

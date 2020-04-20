@@ -1,1 +1,4 @@
-export default function isMultibyte(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isMultibyte(str: string): boolean;

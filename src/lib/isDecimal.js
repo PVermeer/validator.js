@@ -16,6 +16,10 @@ const default_decimal_options = {
 
 const blacklist = ['', '-', '+'];
 
+/**
+ * @param {string} str
+ * @param {typeof default_decimal_options} options
+ */
 export default function isDecimal(str, options) {
   assertString(str);
   options = merge(options, default_decimal_options);

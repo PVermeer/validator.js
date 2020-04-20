@@ -1,3 +1,6 @@
+/**
+ * @param {any} input
+ */
 export default function assertString(input) {
     var isString = (typeof input === 'string' || input instanceof String);
     if (!isString) {

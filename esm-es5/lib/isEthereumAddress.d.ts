@@ -1,1 +1,4 @@
-export default function isEthereumAddress(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isEthereumAddress(str: string): boolean;

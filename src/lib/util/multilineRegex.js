@@ -4,7 +4,7 @@
  *
  * @param {string[]} parts
  * @param {string} flags
- * @return {object} - RegExp object
+ * @return {RegExp} - RegExp object
  */
 export default function multilineRegexp(parts, flags = '') {
   const regexpAsStringLiteral = parts.join('');

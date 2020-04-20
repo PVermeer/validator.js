@@ -1,1 +1,4 @@
-export default function isISRC(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isISRC(str: string): boolean;

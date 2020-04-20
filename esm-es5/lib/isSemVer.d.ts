@@ -1,1 +1,4 @@
-export default function isSemVer(str: any): any;
+/**
+ * @param {string} str
+ */
+export default function isSemVer(str: string): boolean;

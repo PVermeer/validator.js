@@ -69,6 +69,11 @@ function validateDisplayName(display_name) {
 
   return true;
 }
+/**
+ * @param {string} str
+ * @param {typeof default_email_options} [options]
+ */
+
 
 export default function isEmail(str, options) {
   assertString(str);

@@ -1,2 +1,6 @@
-export default function _default(str: any, locale: any): any;
+/**
+ * @param {string} str
+ * @param {string} locale
+ */
+export default function isPostalCode(str: string, locale: string): any;
 export const locales: string[];

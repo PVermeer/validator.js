@@ -1,1 +1,4 @@
-export default function isLocale(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isLocale(str: string): boolean;

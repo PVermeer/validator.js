@@ -4,6 +4,10 @@ const isbn10Maybe = /^(?:[0-9]{9}X|[0-9]{10})$/;
 const isbn13Maybe = /^(?:[0-9]{13})$/;
 const factor = [1, 3];
 
+/**
+ * @param {string} str
+ * @param {10 | 13 | "10" | "13"} version
+ */
 export default function isISBN(str, version = '') {
   assertString(str);
   version = String(version);

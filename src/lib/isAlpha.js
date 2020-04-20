@@ -1,6 +1,9 @@
 import assertString from './util/assertString';
 import { alpha } from './alpha';
 
+/**
+ * @param {string} str
+ */
 export default function isAlpha(str, locale = 'en-US') {
   assertString(str);
   if (locale in alpha) {

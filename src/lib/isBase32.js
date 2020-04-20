@@ -2,6 +2,9 @@ import assertString from './util/assertString';
 
 const base32 = /^[A-Z2-7]+=*$/;
 
+/**
+ * @param {string} str
+ */
 export default function isBase32(str) {
   assertString(str);
   const len = str.length;

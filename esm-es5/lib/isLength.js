@@ -1,5 +1,9 @@
 import assertString from './util/assertString';
 /* eslint-disable prefer-rest-params */
+/**
+ * @param {string} str
+ * @param {{ min?: number; max?: number; }} [options]
+ */
 export default function isLength(str, options) {
     assertString(str);
     var min;

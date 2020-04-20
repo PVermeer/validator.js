@@ -1,1 +1,4 @@
-export default function isAscii(str: any): boolean;
+/**
+ * @param {string} str
+ */
+export default function isAscii(str: string): boolean;

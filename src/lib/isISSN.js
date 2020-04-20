@@ -2,6 +2,10 @@ import assertString from './util/assertString';
 
 const issn = '^\\d{4}-?\\d{3}[\\dX]$';
 
+/**
+ * @param {string} str
+ * @param {{ case_sensitive: boolean, require_hyphen: boolean }} [options]
+ */
 export default function isISSN(str, options = {}) {
   assertString(str);
   let testIssn = issn;

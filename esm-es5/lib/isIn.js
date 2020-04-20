@@ -1,5 +1,9 @@
 import assertString from './util/assertString';
 import toString from './util/toString';
+/**
+ * @param {string} str
+ * @param {any[]} options
+ */
 export default function isIn(str, options) {
     assertString(str);
     var i;
