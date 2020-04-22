@@ -32,8 +32,8 @@
     }
   ],
   "main": "index.js",
-  "module": "esm-es5/index.js",
-  "types": "./esm-es5/index.d.ts",
+  "module": "esm-es5/index-esm.js",
+  "types": "esm-es5/index-esm.d.ts",
   "bugs": {
     "url": "https://github.com/chriso/validator.js/issues"
   },

@@ -1,3 +1,53 @@
+/*
+ *      ===== Backwards compatible namespace export =====
+ * 
+ * Some modules (e.g. 'class-validator') use the typing exports from '@types/validator'
+ * The declarion file from '@types/validator' now does not get passed to the compiler,
+ * so the compiler on the user end freaks out. For backwards compatibility they are still provided
+ * here as 'any' types. This namespace should be removed at the next major update. 
+ */
+declare namespace validator {
+    type AlphaLocale = any;
+    type AlphanumericLocale = any;
+    interface IsByteLengthOptions { [prop: string]: any; }
+    interface IsCurrencyOptions { [prop: string]: any; }
+    type DecimalLocale = any;
+    interface IsDecimalOptions { [prop: string]: any; }
+    interface IsEmailOptions { [prop: string]: any; }
+    interface IsEmptyOptions { [prop: string]: any; }
+    type FloatLocale = any;
+    interface IsFloatOptions { [prop: string]: any; }
+    interface IsFQDNOptions { [prop: string]: any; }
+    type HashAlgorithm = any;
+    type IdentityCardLocale = any;
+    interface IsIntOptions { [prop: string]: any; }
+    type IPVersion = any;
+    type ISBNVersion = any;
+    interface IsISO8601Options { [prop: string]: any; }
+    interface IsISSNOptions { [prop: string]: any; }
+    interface IsLengthOptions { [prop: string]: any; }
+    interface IsMACAddressOptions { [prop: string]: any; }
+    type MobilePhoneLocale = any;
+    interface IsMobilePhoneOptions { [prop: string]: any; }
+    interface IsNumericOptions { [prop: string]: any; }
+    type PostalCodeLocale = any;
+    interface IsURLOptions { [prop: string]: any; }
+    type UUIDVersion = any;
+    interface NormalizeEmailOptions { [prop: string]: any; }
+}
+
+/*
+ * Export the whole package as default.
+ * Creating a variable first since namespace augmentation on a default exports
+ * is not supported by typescript. Now both namespaces will be declared and merged.
+ */
+import { default as validatorIndex } from './index';
+const validator = validatorIndex;
+export default validator;
+
+/**
+ * ====== Tree-shakeable es-modules ======
+ */
 export { default as toDate } from './lib/toDate';
 export { default as toFloat } from './lib/toFloat';
 export { default as toInt } from './lib/toInt';
